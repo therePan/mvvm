@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>简单版mvvm</title>
+  <script src="./mvvm.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>开发语言：{{language}}</h1>
+    <h2>组成部分：</h2>
+    <ul>
+      <li>{{makeUp.one}}</li>
+      <li>{{makeUp.two}}</li>
+      <li>{{makeUp.three}}</li>
+    </ul>
+    <h2>描述：</h2>
+    <p>{{describe}}</p>
+    <p>计算属性：{{sum}}</p>
+    <input placeholder="123" v-module="language" />
+  </div>
+  <script>
+    // 写法和Vue一样
+    const mvvm = new Mvvm({
+      el: '#app',
+      data: {
+        language: 'Javascript',
+        makeUp: {
+          one: 'ECMAScript',
+          two: '文档对象模型（DOM）',
+          three: '浏览器对象模型（BOM）'
+        },
+        describe: '没什么产品是写不了的',
+        a: 1,
+        b: 2
+      },
+      computed: {
+        sum() {
+          return this.a + this.b
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
